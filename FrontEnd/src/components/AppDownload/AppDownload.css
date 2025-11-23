@@ -1,0 +1,43 @@
+.app-download {
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+.app-download p {
+  font-size: clamp(18px, 2vw, 26px);
+  font-size: 50px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.tomato-text {
+  color: tomato;
+  font-weight: 700;
+}
+
+.app-download-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.app-download img {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.app-download img:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,149 @@
+.navbar {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Logo */
+.navbar .logo {
+    width: 150px;
+    transition: transform 0.3s ease;
+}
+.navbar .logo:hover {
+    transform: scale(1.05);
+}
+
+/* Menu */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #49557e;
+}
+
+.navbar li {
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar li:hover {
+    color: tomato;
+}
+
+/* underline animation */
+.navbar li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: tomato;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+.navbar li:hover::after,
+.navbar .active::after {
+    width: 100%;
+}
+
+/* Button */
+.navbar button {
+    background: transparent;
+    font-size: 16px;
+    color: tomato;
+    border: 1px solid tomato;
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: tomato;
+    color: #fff;
+}
+
+/* Right side */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+}
+
+/* Cart dot */
+.navbar-search-icon {
+    position: relative;
+}
+
+.navbar-search-icon .dot {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    border-radius: 50%;
+    top: -5px;
+    right: -8px;
+}
+
+/* ========================= */
+/* Media Queries */
+/* ========================= */
+@media (max-width: 992px) {
+    .navbar-menu {
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .navbar button {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .navbar-menu {
+        display: none; /* hide menu for mobile */
+    }
+
+    .navbar-right {
+        gap: 20px;
+    }
+
+    /* Hamburger */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: #49557e;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        width: 120px;
+    }
+
+    .navbar-right {
+        gap: 15px;
+    }
+
+    .navbar button {
+        padding: 6px 15px;
+        font-size: 12px;
+    }
+}

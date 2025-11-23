@@ -1,0 +1,128 @@
+.place-order {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #333;
+}
+
+/* Left Section */
+.place-order-left {
+  flex: 1;
+  min-width: 320px;
+}
+
+.place-order-left .title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ff6347; /* tomato */
+}
+
+.place-order-left input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1.5px solid #f5b5aa;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.place-order-left input:focus {
+  border-color: #ff6347;
+  outline: none;
+  box-shadow: 0 0 6px rgba(255, 99, 71, 0.25);
+}
+
+/* Two inputs side by side */
+.multi-field {
+  display: flex;
+  gap: 15px;
+}
+
+.multi-field input {
+  flex: 1;
+}
+
+/* Right Section */
+.place-order-right {
+  flex: 1;
+  min-width: 320px;
+}
+
+/* Cart total box */
+.place-order .cart-total {
+  background: #fff2f0; /* light tomato background */
+  padding: 20px;
+  border-radius: 12px;
+  border: 1.5px solid #ffd1cc;
+  box-shadow: 0 3px 10px rgba(255, 99, 71, 0.1);
+}
+
+.place-order .cart-total h2 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #ff6347;
+}
+
+.card-total-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+/* Hints */
+.free-delivery-hint {
+  font-size: 0.9rem;
+  color: #e76f51;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.free-delivery-success {
+  font-size: 0.9rem;
+  color: #2a9d8f;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+/* Button */
+.place-order .cart-total button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #ff6347;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: black 0.2s ease, transform 0.1s ease;
+}
+
+.place-order .cart-total button:hover {
+  background: #e5533d;
+  transform: translateY(-1px);
+}
+
+.place-order .cart-total button:disabled {
+  background: #f5b5aa;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .place-order {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+}

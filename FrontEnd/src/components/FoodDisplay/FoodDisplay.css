@@ -1,0 +1,90 @@
+.food-display {
+  margin-top: 40px;
+  text-align: center;
+  padding: 0 5vw;
+}
+
+.food-display h2 {
+  font-size: max(2.5vw, 24px);
+  font-weight: 700;
+  color: #333;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* underline effect */
+.food-display h2::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, tomato, #ff914d);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.food-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  margin-top: 30px;
+  gap: 30px;
+  row-gap: 50px;
+  transition: all 0.3s ease;
+}
+
+/* Optional hover animation for grid items */
+.food-display-list > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.food-display-list > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* ========================= */
+/* RESPONSIVE BREAKPOINTS */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .food-display {
+    padding: 0 3vw;
+  }
+  .food-display h2 {
+    font-size: 22px;
+  }
+  .food-display-list {
+    gap: 25px;
+    row-gap: 40px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .food-display {
+    margin-top: 30px;
+    padding: 0 20px;
+  }
+  .food-display h2 {
+    font-size: 20px;
+  }
+  .food-display-list {
+    gap: 20px;
+    row-gap: 30px;
+  }
+}
+
+/* Small Mobiles */
+@media (max-width: 480px) {
+  .food-display {
+    padding: 0 10px;
+  }
+  .food-display h2 {
+    font-size: 18px;
+  }
+  .food-display-list {
+    gap: 15px;
+    row-gap: 25px;
+  }
+}
