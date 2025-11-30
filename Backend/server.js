@@ -1,0 +1,35 @@
+import express from "express";
+import cors from "cors";
+import { connectDb } from "./config/db.js";
+import foodRouter from "./routes/foodRoute.js";
+
+
+// appconfig
+const app=express();
+const port=4000;
+
+// middleware
+app.use(express.json());     //usint this we can connect backend to frontend
+// db connection
+
+connectDb();
+
+// api endpoint;
+app.use("/api/food",foodRouter);
+app.use("/images",express.static('uploads'))
+
+
+app.use(cors());
+
+app.get("/",(req,res)=>{
+    res.send("API Working");
+})    //this is HTTP Mehtod to req data from server
+
+
+app.listen(port,()=>{
+    console.log(`Server Started on http://localhost:${port}`)
+})
+
+// mongodb+srv://oiiamsaurav_fooddeliveryproject:Bigbang_1306@cluster0.3c5krfp.mongodb.net/?
+
+// appName=Cluster0
