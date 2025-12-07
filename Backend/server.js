@@ -3,33 +3,32 @@ import cors from "cors";
 import { connectDb } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 
+const app = express();
+const port = 4000;
 
-// appconfig
-const app=express();
-const port=4000;
+// --- CORS MUST COME FIRST ---
+// app.use(cors({
+//     origin: "http://localhost:5173",
+//     credentials: true
+// }));
+app.use(cors());
+// --- Body Parsers ---
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// middleware
-app.use(express.json());     //usint this we can connect backend to frontend
-// db connection
-
+// --- DB ---
 connectDb();
 
-// api endpoint;
-app.use("/api/food",foodRouter);
-app.use("/images",express.static('uploads'))
+// --- Routes ---
+app.use("/api/food", foodRouter);
+app.use("/images", express.static("uploads"));
 
-
-app.use(cors());
-
-app.get("/",(req,res)=>{
+// --- Test Route ---
+app.get("/", (req, res) => {
     res.send("API Working");
-})    //this is HTTP Mehtod to req data from server
+});
 
-
-app.listen(port,()=>{
-    console.log(`Server Started on http://localhost:${port}`)
-})
-
-// mongodb+srv://oiiamsaurav_fooddeliveryproject:Bigbang_1306@cluster0.3c5krfp.mongodb.net/?
-
-// appName=Cluster0
+// --- Start Server ---
+app.listen(port, () => {
+    console.log(`Server Started on http://localhost:${port}`);
+});
