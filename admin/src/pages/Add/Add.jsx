@@ -30,7 +30,7 @@ const Add = ({url}) => {
     formData.append("image", image);
     const response = await axios.post(`${url}/api/food/add`, formData);
     if (response.data.success) {
-      console.log("Data successfully added")
+      // console.log("Data successfully added")
       setData({
         name: "",
         description: "",
@@ -43,14 +43,11 @@ const Add = ({url}) => {
 
     } else {
       toast.error(response.data.message);
-      console.log("Error inside add")
+      // console.log("Error inside add")
     }
   }
 
-  // useEffect(()=>{
-  //   console.log(data);
-  // },[data])
-
+ 
 
   return (
     <div className='add'>

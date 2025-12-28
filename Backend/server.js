@@ -10,7 +10,7 @@ import 'dotenv/config';
 // appconfig
 const app=express();
 const port=4000;
-
+app.use(cors());
 // middleware
 app.use(express.json());     //usint this we can connect backend to frontend
 // db connection
@@ -22,7 +22,7 @@ app.use("/api/food",foodRouter);
 app.use("/images",express.static('uploads'))
 app.use("/api/users",userRouter);
 
-app.use(cors());
+// app.use(cors());
 
 app.get("/",(req,res)=>{
     res.send("API Working");
