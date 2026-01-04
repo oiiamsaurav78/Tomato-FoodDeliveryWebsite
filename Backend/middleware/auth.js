@@ -12,13 +12,15 @@ const authMiddleware=async(req,res,next)=>{
     }
     try {
         const token_decode=jwt.verify(token,process.env.JWT_SECRET);
-        req.body.userID=token_decode.id;
+        // req.body.userID=token_decode.id;
+        req.userId = token_decode.id;  //getCart work with this
+
         next();
     } catch (error) {
         console.log(error);
         res.json({
             success:false,
-            message:"Error",
+            message:"Error in auth.js",
         }) 
     }
 
