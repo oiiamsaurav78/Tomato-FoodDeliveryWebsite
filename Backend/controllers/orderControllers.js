@@ -97,5 +97,17 @@ const userOrders = async (req, res) => {
     }
 };
 
+//listing order for admin panel
+const listOrders=async(req,res)=>{
+    try {
+        const order=await orderModel.find({});
+        res.json({success:true,data:order});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:'Error in listOrders'});
+    }
 
-export { placeOrder, verifyOrder, userOrders }
+}
+
+
+export { placeOrder, verifyOrder, userOrders,listOrders }
