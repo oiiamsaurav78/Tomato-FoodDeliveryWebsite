@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 //Placing order from frontend;
 const placeOrder = async (req, res) => {
 
-    const frontend_url = "http://localhost:5173" //hardcoded the frontend_url
+    const frontend_url = "http://localhost:5174" //hardcoded the frontend_url
 
     try {
         const newOrder = new orderModel({
@@ -109,5 +109,22 @@ const listOrders=async(req,res)=>{
 
 }
 
+//api for order status
+const updateStatus= async(req,res)=>{
+    try {
+        await orderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status});
+        res.json({
+            success:true,
+            message:"Staus updated"
+        })
+    } catch (error) {
+        console.log(error ,"Error inside updatesStatus api"),
+        res.json({
+            success:true,
+            message:"Error"
+        })
+    }
+}
 
-export { placeOrder, verifyOrder, userOrders,listOrders }
+
+export { placeOrder, verifyOrder, userOrders,listOrders,updateStatus }
