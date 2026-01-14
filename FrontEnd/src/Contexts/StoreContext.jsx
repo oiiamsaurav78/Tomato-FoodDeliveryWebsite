@@ -81,7 +81,7 @@ const StoreContextProvider = (props) => {
     setCartItems,
     removeFromCart,
     addToCart,
-    getCartTotal, // ✅ exposed
+    getCartTotal, // 
     getTotalCartAmount,
     url,
     token,
