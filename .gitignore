@@ -1,0 +1,13 @@
+# Ignore node modules
+node_modules/
+
+# Ignore env files
+.env
+
+# But DON'T ignore these folders
+!assets/
+!frontend/
+!Backend/
+
+# Also don't ignore .gitignore itself
+!.gitignore
