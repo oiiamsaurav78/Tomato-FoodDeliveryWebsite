@@ -9,7 +9,7 @@ import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 10000;
 
 // --- CORS MUST COME FIRST ---
 // app.use(cors({
@@ -21,12 +21,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// appconfig
-const app=express();
-const port=4000;
-app.use(cors());
+
 // middleware
-app.use(express.json());     //usint this we can connect backend to frontend
+// app.use(express.json());     //usint this we can connect backend to frontend
 // db connection
 
 connectDb();
