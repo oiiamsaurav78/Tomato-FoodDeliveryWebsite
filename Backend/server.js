@@ -6,6 +6,18 @@ import userRouter from "./routes/userRoute.js";
 
 import 'dotenv/config';
 
+const app = express();
+const port = 4000;
+
+// --- CORS MUST COME FIRST ---
+// app.use(cors({
+//     origin: "http://localhost:5173",
+//     credentials: true
+// }));
+app.use(cors());
+// --- Body Parsers ---
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // appconfig
 const app=express();
@@ -26,13 +38,9 @@ app.use("/api/users",userRouter);
 
 app.get("/",(req,res)=>{
     res.send("API Working");
-})    //this is HTTP Mehtod to req data from server
+});
 
-
-app.listen(port,()=>{
-    console.log(`Server Started on http://localhost:${port}`)
-})
-
-// mongodb+srv://oiiamsaurav_fooddeliveryproject:Bigbang_1306@cluster0.3c5krfp.mongodb.net/?
-
-// appName=Cluster0
+// --- Start Server ---
+app.listen(port, () => {
+    console.log(`Server Started on http://localhost:${port}`);
+});
